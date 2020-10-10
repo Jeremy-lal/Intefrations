@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.menuBurger {
+  display: none;
+  background-color: #181719;
+  font-size: 20px;
+  padding: 1rem;
+  color: white;
+  height: 95vh;
+
+  i {
+    width: 100%;
+    text-align: end;
+  }
+
+  ul {
+    position: absolute;
+    top: 30%;
+    left: 30%;;
+  }
+
+  li  {
+    font-family: Montserrat;
+    padding: 2rem;
+    font-size: 18px;
+    text-align: center;
+  }
+}
+.container {
+  background-color: #181719;
+  color: white;
+  height: 100vh;
+
+  &__navbar {
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
+    justify-content: space-between;
+
+    button {
+      font-family:Crimson Pro;
+      color: white;
+      background-color: transparent;
+      border: 1px solid white;
+      padding: 0.5rem;
+    }
+
+    &__menu {
+      justify-self: flex-end;
+
+      .menu--desktop {
+        display: block;
+      }
+
+      .menu--phone {
+        display: none;
+      }
+
+      ul li{
+        display: inline;
+        font-family: Montserrat;
+      }
+
+      li {
+        padding-right: 4rem;
+        font-size: 18px;
+      }
+
+    }
+  }
+
+  &__content {
+    margin-top: 7%;
+    display: flex;
+    justify-content: space-around;
+
+    &__text {
+      color: white;
+
+      h1 {
+        font-family: Lora;
+        font-weight: 400;
+        font-size: 48px;
+        padding-top: 10px;
+      }
+
+      p {
+        font-size: 24px;
+        font-family: Montserrat;
+        font-weight: 300;
+        padding: 55px 0;
+      }
+
+      button {
+        font-size: 18px;
+        border: none;
+        background-color: transparent;
+        color: white;
+        font-family: Montserrat;
+        font-weight: 600;
+
+        i {
+          padding-left: 20px;
+        }
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    &__image {
+      position: relative;
+
+      img {
+        width: 821px;
+      }
+
+      &__pers {
+        background-color: #181719;
+        position: absolute;
+        height: 40%;
+        width: 50%;
+        right: 8%;
+        top: 80%;
+
+        p {
+          font-family: Lora;
+          font-size: 24px;
+          padding-left: 1rem;
+        }
+        & > div {
+          display: flex;
+          font-family: Montserrat;
+          font-weight: 500;
+          margin-bottom: 1rem;
+
+          h2 {
+            padding: 1.8rem 0 10px 0;
+            font-size: 14px;
+          }
+          p {
+            font-size: 12px;
+            color: #828282;
+            font-weight: 700;
+            padding: 0;
+          }
+        }
+        img {
+          width: 70px;
+          border-radius: 50%;
+          padding: 1.4rem 1.5rem;
+        }
+      }
+
+    }
+
+
+  }
+
+  &__footer {
+    margin-top: 7%;
+    p {
+      text-align: center;
+    }
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 800px) {
+  .menuBurger {
+    display: block;
+  }
+
+  .container {
+
+    &__navbar {
+      &__menu {
+        justify-self: flex-end;
+
+        li {
+          padding-right: 1rem;
+          font-size: 25px;
+        }
+
+        .menu--desktop {
+          display: none;
+        }
+
+        .menu--phone {
+          display: block;
+        }
+      }
+    }
+
+    &__content {
+      flex-direction: column;
+      margin-left: 2%;
+
+      &__text {
+
+        margin-bottom: 2rem;
+
+        h1 {
+          font-size: 36px;
+        }
+
+        p {
+          font-size: 14px;
+          padding: 18px 0;
+        }
+
+        button {
+          font-size: 14px;
+
+          i {
+            padding-left: 14px;
+          }
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      &__image {
+        position: relative;
+
+        img {
+          width: 98%;
+          // position: absolute;
+        }
+
+        &__pers {
+
+          p {
+            font-size: 18px;
+          }
+          & > div {
+            display: flex;
+            font-family: Montserrat;
+            font-weight: 500;
+            margin-bottom: 5%;
+
+            h2 {
+              padding: 20% 0 10px 0;
+              font-size: 12px;
+            }
+            p {
+              font-size: 10px;
+              color: #828282;
+              font-weight: 700;
+              padding: 0;
+            }
+          }
+          img {
+            width: 50px;
+            border-radius: 50%;
+            padding: 5% 5%;
+          }
+        }
+
+      }
+    }
+
+    &__footer {
+      margin-top: 25%;
+      p {
+        text-align: center;
+      }
+    }
+  }
+}
+

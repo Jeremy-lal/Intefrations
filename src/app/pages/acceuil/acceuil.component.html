@@ -1,0 +1,7 @@
+<h1>Projets d'intégration</h1>
+
+<div class="list">
+  <ul >
+    <li *ngFor="let projet of projets"  routerLink="{{projet.url}}">{{projet.name}}(<a target="_blank" href="{{projet.site}}">{{projet.origin}}</a>)</li>
+  </ul>
+</div>

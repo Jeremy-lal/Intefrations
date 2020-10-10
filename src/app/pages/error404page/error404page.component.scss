@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&display=swap');
+
+h2 {
+  font-family: Inconsolata;
+  padding: 2rem 3rem;
+}
+.content {
+  height: 90vh;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50px 1tr 50px;
+  grid-template-areas:
+    "header header"
+    "crow texte"
+    "footer footer"
+  ;
+
+  img {
+    width: 60%;
+    grid-area: crow;
+    justify-self: center;
+  }
+  &__right {
+    grid-area: texte;
+    font-family: Space Mono;
+
+    h1 {
+      font-size: 64px;
+    }
+    p {
+      padding-top: 2rem;
+      font-size: 24px;
+      width: 50%;
+    }
+
+    button {
+      background-color: #333333;
+      margin-top: 3rem;
+      color: white;
+      width: 216px;
+      height: 68px;
+      font-size: 14px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  &__footer {
+    grid-area: footer;
+    align-self: flex-end;
+    p {
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .content {
+    grid-template-areas:
+      "header header"
+      "crow crow"
+      "texte texte"
+      "footer footer"
+    ;
+    &__right {
+      padding-left: 1rem;
+
+      h1 {
+        font-size: 48px;
+      }
+
+      p {
+        padding-top: 2rem;
+        font-size: 24px;
+        width: 90%;
+      }
+    }
+  }
+}

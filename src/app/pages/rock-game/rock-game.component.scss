@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600&display=swap');
+
+.container {
+  height: 100vh;
+  background: radial-gradient(hsl(214, 47%, 23%),hsl(237, 49%, 15%));
+  color: white;
+  font-family: Barlow Semi Condensed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid rgb(206, 204, 204);
+    border-radius: 20px;
+    width: 50%;
+    height: 150px;
+    margin-top: 3%;
+
+    &__text {
+      font-size: 24px;
+      padding-left: 1rem;
+    }
+
+    &__score {
+      width: 20%;
+      height: 130px;
+      border-radius: 20px;
+      background-color: white;
+      margin-right: 1rem;
+
+      p {
+        text-align: center;
+      }
+
+      &>p:nth-child(2n+1) {
+        color: hsl(229, 64%, 46%);
+        padding-top: 1rem;
+      }
+      &>p:nth-child(2n) {
+        color: black;
+        font-size: 4rem;
+      }
+
+    }
+  }
+
+  &__content {
+
+    height: 70%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+
+    div {
+      width: 200px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      position: absolute;
+
+    }
+
+    .rock {
+      background: linear-gradient(hsl(339, 71%, 52%),hsl(349, 70%, 60%));
+      bottom: 20%;
+    }
+
+    .paper {
+      background: linear-gradient(hsl(230, 89%, 62%),hsl(230, 89%, 65%));
+      top: 20%;
+      left: 20%;
+    }
+
+    .scissors{
+      background: linear-gradient(hsl(39, 89%, 49%),hsl(40, 84%, 53%));
+      top: 20%;
+      right: 20%;
+    }
+
+    .inside {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 160px;
+      height: 160px;
+      background-color: white;
+      border-radius: 50%;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__game {
+    height: 70%;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    div .rock, div .paper, div .scissors{
+      width: 250px;
+      height: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background-color: white;
+    }
+
+    .rock {
+      background: linear-gradient(hsl(339, 71%, 52%),hsl(349, 70%, 60%));
+    }
+
+    .paper {
+      background: linear-gradient(hsl(230, 89%, 62%),hsl(230, 89%, 65%));
+    }
+
+    .scissors{
+      background: linear-gradient(hsl(39, 89%, 49%),hsl(40, 84%, 53%));
+    }
+    .inside {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      height: 200px;
+      background-color: white;
+      border-radius: 50%;
+    }
+
+       &__player, &__computer {
+      display: flex;
+      flex-direction: column;
+      padding-top: 10%;
+      width: 33%;
+      height: 500px;
+      align-items: center;
+
+    img {
+       width: 120px;
+     }
+
+      h2 {
+        padding-bottom: 15%;
+      }
+    }
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+      width: 33%;
+      height: 500px;
+      align-items: center;
+      justify-content: center;
+
+      h2 {
+        padding-bottom: 2rem;
+        font-size: 3rem;
+      }
+
+      button {
+        border: 1px solid white;
+        color: white;
+        font-family: Barlow Semi Condensed;
+        background-color: transparent;
+        font-size: 1.5rem;
+        padding: 0.7rem 1.5rem;
+        border-radius: 10px;
+      }
+    }
+  }
+
+  .rules {
+    position: absolute;
+    bottom: 4%;
+    right: 5%;
+    border: 1px solid white;
+    color: white;
+    font-family: Barlow Semi Condensed;
+    background-color: transparent;
+    font-size: 1.5rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 10px;
+  }
+
+  &__rulesPopUp {
+     z-index: 3;
+     background-color: white;
+     position: absolute;
+     color: lightgray;
+     width: 500px;
+     height: 550px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     border-radius: 20px;
+     top: 20%;
+
+     img {
+       width: 90%;
+     }
+
+     &__header {
+       width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem;
+        margin-bottom: 3rem;
+
+        img {
+          width: 20px;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+     }
+
+  }
+}
+
+button:hover {
+  cursor: pointer;
+}

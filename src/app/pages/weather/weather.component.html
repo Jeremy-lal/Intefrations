@@ -1,0 +1,130 @@
+<div class="container" *ngIf="dataSort">
+
+  <div class="container__left">
+
+    <div class="container__left__weather" *ngIf="day">
+      <img src="../../../assets/Weather/Cloud-background.png" alt="cloud background" class="background">
+      <div class="container__left__weather__search">
+        <button (click)="openSearch()">Search for places</button>
+        <button class="icon"><i class="fas fa-map-marker-alt" (click)="openSearch()"></i></button>
+      </div>
+      <img src="../../../assets/Weather/Clear.png" alt="weater" *ngIf="false">
+      <img src="../../../assets/Weather/Hail.png" alt="weater" *ngIf="false">
+      <img src="../../../assets/Weather/HeavyCloud.png" alt="weater" *ngIf="false">
+      <img src="../../../assets/Weather/HeavyRain.png" alt="weater" *ngIf="false">
+      <img src="../../../assets/Weather/LightCloud.png" alt="weater" *ngIf="false">
+      <img src="../../../assets/Weather/LightRain.png" alt="weater" *ngIf="false">
+      <img src="../../../assets/Weather/Shower.png" alt="weater" *ngIf="true">
+      <img src="../../../assets/Weather/Sleet.png" alt="weater" *ngIf="false">
+      <img src="../../../assets/Weather/Snow.png" alt="weater" *ngIf="false">
+      <img src="../../../assets/Weather/Thunderstorm.png" alt="weater" *ngIf="false">
+
+      <h2>{{dataSort[0].main.temp}}<span *ngIf="units === 'metric'"> °C</span><span *ngIf="units === 'imperial'">
+          °F</span></h2>
+      <h3>{{dataSort[0].weather[0].main}}</h3>
+
+      <p>Today . {{dataSort[0].dt_txt | date: 'EEE d LLL'}}</p>
+      <p><i class="fas fa-map-marker-alt"></i> {{city}}</p>
+
+    </div>
+
+    <div class="container__left__search" *ngIf="!day">
+
+      <p><i class="fas fa-times" (click)="closeSearch()"></i></p>
+
+      <div class="container__left__search__input">
+        <div>
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="search location" [(ngModel)]="input"/>
+        </div>
+        <button (click)="getWeather(input)">Search</button>
+      </div>
+
+      <div (click)="getWeather('London')" class="city">
+        <p>London</p>
+        <i class="fas fa-angle-right"></i>
+      </div>
+      <div (click)="getWeather('Barcelona')" class="city">
+        <p>Barcelona</p>
+        <i class="fas fa-angle-right"></i>
+      </div>
+      <div (click)="getWeather('Bordeaux')" class="city">
+        <p>Bordeaux</p>
+        <i class="fas fa-angle-right"></i>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container__right">
+    <div class="container__right__icons">
+      <div (click)="changeUnits('metric')" [ngStyle]="{'background-color': units === 'metric' ? 'white' : '#585676', 'color': units === 'metric' ? '#100E1D' : 'white'}">°C</div>
+      <div (click)="changeUnits('imperial')" [ngStyle]="{'background-color': units === 'imperial' ? 'white' : '#585676', 'color': units === 'imperial' ? '#100E1D' : 'white'}">°F</div>
+    </div>
+    <div class="container__right__days">
+      <div class="container__right__days__day" *ngFor="let item of dataSort | slice:1; let i = index;">
+        <h2 *ngIf="i === 0">Tomorrow</h2>
+        <h2 *ngIf="i !== 0">{{item.dt_txt | date: 'E d LLL'}}</h2>
+        <img src="../../../assets/Weather/Clear.png" alt="weater" *ngIf="false">
+        <img src="../../../assets/Weather/Hail.png" alt="weater" *ngIf="false">
+        <img src="../../../assets/Weather/HeavyCloud.png" alt="weater" *ngIf="false">
+        <img src="../../../assets/Weather/HeavyRain.png" alt="weater" *ngIf="false">
+        <img src="../../../assets/Weather/LightCloud.png" alt="weater" *ngIf="false">
+        <img src="../../../assets/Weather/LightRain.png" alt="weater" *ngIf="false">
+        <img src="../../../assets/Weather/Shower.png" alt="weater" *ngIf="true">
+        <img src="../../../assets/Weather/Sleet.png" alt="weater" *ngIf="false">
+        <img src="../../../assets/Weather/Snow.png" alt="weater" *ngIf="false">
+        <img src="../../../assets/Weather/Thunderstorm.png" alt="weater" *ngIf="false">
+
+        <div class="temp">
+          <p>{{item.main.temp_max}}<span *ngIf="units === 'metric'">°C</span><span
+              *ngIf="units === 'imperial'">°F</span></p>
+          <p>{{item.main.temp_min}}<span *ngIf="units === 'metric'">°C</span><span
+              *ngIf="units === 'imperial'">°F</span></p>
+        </div>
+      </div>
+    </div>
+
+    <h2>Today's Hightlights</h2>
+    <div class="container__right__details">
+
+      <div class="big">
+        <h3>Wind speed</h3>
+        <p>{{dataSort[0].wind.speed}} <span>m/s</span></p>
+        <p><i class="far fa-compass"></i>{{dataSort[0].wind.deg}}°</p>
+      </div>
+
+      <div class="big">
+        <h3>Humidity</h3>
+        <p>{{dataSort[0].main.humidity}}<span>%</span></p>
+
+        <div class="bar">
+          <div class="percentage">
+            <p>0</p>
+            <p>50</p>
+            <p>100</p>
+          </div>
+          <div class="measures">
+            <div [style.width.%]="dataSort[0].main.humidity"></div>
+          </div>
+          <p>%</p>
+        </div>
+      </div>
+
+      <div>
+        <h3>Visibility</h3>
+        <p>{{dataSort[0].visibility}} <span>m</span></p>
+      </div>
+
+      <div>
+        <h3>Air Pressure</h3>
+        <p>{{dataSort[0].main.pressure}} <span>hPa</span></p>
+      </div>
+
+    </div>
+
+    <div class="container__right__footer">
+      <p>Lalait Jérémy @ DevChallenges.io</p>
+    </div>
+  </div>
+</div>

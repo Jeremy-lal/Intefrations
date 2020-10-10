@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.container {
+  display: grid;
+  grid-template-columns: 20% 20% 20%;
+  justify-content: center;
+  grid-template-areas: "header header header" "one two two" "three three four" "five six four" "footer footer footer";
+  grid-gap: 1rem;
+
+  img {
+    border-radius: 4%;
+    width: 100%;
+  }
+
+  &__header {
+    grid-area: header;
+    justify-self: center;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Montserrat;
+    font-weight: 600;
+
+    h1 {
+      text-align: center;
+      font-size: 24px;
+      padding-top: 0.5rem;
+    }
+
+    .city {
+      color: #A9A9A9;
+      font-size: 14px;
+    }
+
+    img {
+      width: 130px;
+      border-radius: 20px;
+      margin-top: 2rem;
+    }
+
+    &__counters {
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 400px;
+      padding: 1.5rem;
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;;
+        width: 100px;
+        height: 67px;
+        color: #4E5150;
+        background-color: #E5E5E5;
+        border-radius: 16px;
+        font-family: Montserrat;
+        font-weight: 600;
+        text-align: center;
+
+        div > p:nth-child(2n+1) {
+          font-size: 18px;
+        }
+        div > p:nth-child(2n) {
+          font-size: 14px;
+        }
+      }
+    }
+
+  }
+
+  .one {
+    grid-area: one;
+  }
+  .two {
+    grid-area: two;
+    height: 100%;
+  }
+  .three {
+    grid-area: three;
+  }
+  .four {
+    grid-area: four;
+    border-radius: 6%;
+  }
+  .five {
+    grid-area: five;
+  }
+  .six {
+    grid-area: six;
+  }
+
+  &__footer {
+    grid-area: footer;
+    p {
+      text-align: center;
+      padding: 2rem;
+    }
+
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    grid-template-columns: 30% 30% 30%;
+
+    &__header {
+
+      h1 {
+        font-size: 14px;
+      }
+
+      .city {
+        font-size: 10px;
+      }
+
+      img {
+        width: 100px;
+      }
+
+      &__counters {
+        div {
+          div > p:nth-child(2n+1) {
+            font-size: 12px;
+          }
+          div >p:nth-child(2n) {
+            font-size: 12px;
+          }
+        }
+      }
+
+    }
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    grid-template-columns: 30% 30% 30%;
+
+    &__header {
+
+      h1 {
+        font-size: 14px;
+      }
+
+      .city {
+        font-size: 10px;
+      }
+
+      img {
+        width: 100px;
+        border-radius: 20px;
+        margin-top: 2rem;
+      }
+
+      &__counters {
+        div {
+          width: 80px;
+          height: 60px;
+
+          div > p:nth-child(2n+1) {
+            font-size: 10px;
+          }
+          p:nth-child(2n) {
+            font-size: 10px;
+          }
+        }
+      }
+
+    }
+  }
+}

@@ -1,0 +1,92 @@
+<div class="container">
+
+  <div class="container__header">
+    <div class="container__header__text">
+      <h2>ROCK</h2>
+      <h2>PAPER</h2>
+      <h2>SCISSORS</h2>
+    </div>
+    <div class="container__header__score">
+      <p>SCORE</p>
+      <p class="score">{{counter}}</p>
+    </div>
+
+  </div>
+
+  <div class="container__content" *ngIf="displayGame">
+
+    <img src="../../../assets/rockPaperScissors/bg-triangle.svg" alt="triangle">
+
+    <div class="rock" (click)="chooseSign('rock')">
+      <div class="inside">
+        <img src="../../../assets/rockPaperScissors/icon-rock.svg" alt="rock">
+      </div>
+    </div>
+    <div class="paper" (click)="chooseSign('paper')">
+      <div class="inside">
+        <img src="../../../assets/rockPaperScissors/icon-paper.svg" alt="paper">
+      </div>
+    </div>
+    <div class="scissors" (click)="chooseSign('scissors')">
+      <div class="inside">
+        <img src="../../../assets/rockPaperScissors/icon-scissors.svg" alt="SCISSORS">
+      </div>
+    </div>
+  </div>
+
+  <div class="container__game" *ngIf="!displayGame">
+
+    <div class="container__game__player">
+      <h2>YOU PICKED</h2>
+      <div class="rock" *ngIf="playerSign === 'rock'">
+        <div class="inside">
+          <img src="../../../assets/rockPaperScissors/icon-rock.svg" alt="rock">
+        </div>
+      </div>
+      <div class="paper" *ngIf="playerSign === 'paper'">
+        <div class="inside">
+          <img src="../../../assets/rockPaperScissors/icon-paper.svg" alt="paper">
+        </div>
+      </div>
+      <div class="scissors" *ngIf="playerSign === 'scissors'">
+        <div class="inside">
+          <img src="../../../assets/rockPaperScissors/icon-scissors.svg" alt="SCISSORS">
+        </div>
+      </div>
+    </div>
+    <div class="container__game__text">
+      <h2 *ngIf="resultMatch ==='win'">YOU WIN</h2>
+      <h2 *ngIf="resultMatch === 'loose'">YOU LOOSE</h2>
+      <h2 *ngIf="resultMatch === 'equality'">EQUALITY</h2>
+      <button (click)="restart()">PLAY AGAIN</button>
+    </div>
+    <div class="container__game__computer">
+      <h2>THE HOUSE PICKED</h2>
+      <div class="rock" *ngIf="computerSign === 'rock'">
+        <div class="inside">
+          <img src="../../../assets/rockPaperScissors/icon-rock.svg" alt="rock">
+        </div>
+      </div>
+      <div class="paper" *ngIf="computerSign === 'paper'">
+        <div class="inside">
+          <img src="../../../assets/rockPaperScissors/icon-paper.svg" alt="paper">
+        </div>
+      </div>
+      <div class="scissors" *ngIf="computerSign === 'scissors'">
+        <div class="inside">
+          <img src="../../../assets/rockPaperScissors/icon-scissors.svg" alt="SCISSORS">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container__rulesPopUp" *ngIf="popUp">
+    <div class="container__rulesPopUp__header">
+      <h3>RULES</h3>
+      <img src="../../../assets/rockPaperScissors/icon-close.svg" alt="close" (click)="closeRules()">
+    </div>
+
+    <img src="../../../assets/rockPaperScissors/image-rules.svg" alt="rules">
+  </div>
+  <button class="rules" (click)="rules()">RULES</button>
+</div>

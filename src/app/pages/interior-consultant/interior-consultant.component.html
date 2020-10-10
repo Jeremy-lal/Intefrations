@@ -1,0 +1,54 @@
+<div class="menuBurger" *ngIf="burger">
+  <i class="fas fa-times" (click)="displayBurger()"></i>
+  <ul>
+    <li class="bold" routerLink="/home">Home</li>
+    <li>Collection</li>
+    <li>About</li>
+    <li>Contact</li>
+  </ul>
+</div>
+
+<div class="container" *ngIf="!burger">
+
+  <div class="container__navbar">
+    <button>THIS INTERIOR</button>
+    <div class="container__navbar__menu">
+      <ul class="menu--desktop">
+        <li class="bold" routerLink="/home">Home</li>
+        <li>Collection</li>
+        <li>About</li>
+        <li>Contact</li>
+      </ul>
+      <ul class="menu--phone">
+        <li (click)="displayBurger()"><i class="fas fa-bars"></i></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container__content">
+    <div class="container__content__text">
+      <h1>Modern interior</h1>
+      <p>A full-Service residential & <br /> commercial interior design and <br /> staging company offering <br />
+        professionnal organizing & <br /> eco-services</p>
+
+      <button>Read more <i class="fas fa-long-arrow-alt-right"></i></button>
+    </div>
+    <div class="container__content__image">
+      <img src="../../../assets/InteriorConsultant/photo1.png" alt="interior">
+      <div class="container__content__image__pers">
+        <div>
+          <img src="../../../assets/InteriorConsultant/photo2.png" alt="aliza">
+          <div class="text">
+            <h2>Aliza Webber</h2>
+            <p>Interior designer</p>
+          </div>
+        </div>
+        <p>Designed in 2020 by <br /> Aliza Webber</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container__footer">
+    <p>Lalait Jérémy @ DevChallenges.io</p>
+  </div>
+</div>
